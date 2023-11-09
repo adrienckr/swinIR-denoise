@@ -2,7 +2,7 @@ from mmagic.apis import MMagicInferencer
 import time
 import torch
 
-# Model configuration and checkpoint
+# Take Model configuration path and checkpoint link from Models-and-config.txt
 config = 'configs/swinir/swinir_gan-x4s64w8d9e240_8xb4-lr1e-4-600k_df2k-ost.py'
 checkpoint = 'https://download.openmmlab.com/mmediting/swinir/swinir_gan-x4s64w8d9e240_8xb4-lr1e-4-600k_df2k-os-9f1599b5.pth'
 
