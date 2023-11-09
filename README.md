@@ -2,7 +2,6 @@
 # 📷 Image Denoising with MMagic's DeNoise Model 🌟
 
 This Python script demonstrates how to use the MMagic API to remove noise from images and enhance their quality using the DeNoise model. Simply provide an input image, and the script will generate a denoised output! 🧹🖼️
-
 ## Prerequisites 🛠️
 
 Before you get started, make sure you have the following dependencies installed:
@@ -12,7 +11,7 @@ Before you get started, make sure you have the following dependencies installed:
 
 ## Installation Steps 📦
 
-Follow these simple steps to set up your environment for using the MMagic DeNoise model:
+Follow these simple steps to set up your environment for using the MMagic Stable Diffusion model:
 
 1. **Install [Miniconda](https://docs.conda.io/projects/miniconda/en/latest/miniconda-install.html) on your system if you haven't already.**
 
@@ -29,36 +28,54 @@ Follow these simple steps to set up your environment for using the MMagic DeNois
    nvcc --version
    ```
 
-4. **Download the model configuration and checkpoint from [Models-and-config.txt](Models-and-config.txt).**
+4. **Install PyTorch by referring to the [official PyTorch documentation](https://pytorch.org/). Select the appropriate configuration based on your system and follow the installation instructions.**
 
-5. **Get input and output image paths from the user.**
+   ![PyTorch Installation](https://prod-files-secure.s3.us-west-2.amazonaws.com/16414159-cf5e-4dee-a624-4cdc703e880e/0c523fad-82b5-442b-b9d1-f72409bf9fb4/Untitled.png)
+
+5. **Install the `MMCV` library using `MIM`, a package manager for AI and machine learning dependencies. Run the following commands:**
+
+   ```bash
+   pip install -U openmim
+   mim install 'mmcv>=2.0.0'
+   ```
+
+6. **Install `mmengine` from the GitHub repository:**
+
+   ```bash
+   pip install git+https://github.com/open-mmlab/mmengine.git
+   ```
+
+7. **Install the `mmagic` toolbox in editable mode using the following command:**
+
+   ```bash
+   git clone https://github.com/open-mmlab/mmagic.git
+   cd mmagic
+   pip3 install -e . -v
+   ```
+
+   The `-e .` flag is used to install the Python package in editable mode, meaning that any changes made to the source code will be reflected in the installed package.
+
+8. **Additionally, install `accelerate` for faster and less memory-intensive model loading:**
+
+   ```bash
+   pip install accelerate
+   ```
+
+9. **Run the script:**
+
+   ```bash
+   python app.py
+   ```
+
+4. **Get the required model configuration and checkpoint from [Models-and-config.txt](Models-and-config.txt).**
+
+5. **Enter the input and output image path.**
 
    ```bash
    Enter the input image path: input_image.png
    Enter the output image path: output_image.png
    ```
 
-6. **Start the timer for performance measurement.**
-
-7. **Create the MMagicInferencer using the provided model configuration and checkpoint.**
-
-   ```python
-   editor = MMagicInferencer('esrgan', model_config=config, model_ckpt=checkpoint)
-   ```
-
-8. **Remove noise from the input image and save the denoised output.**
-
-   ```python
-   output = editor.infer(img=input_img_path, result_out_dir=output_img_path)
-   ```
-
-9. **Stop the timer and print the inference time.**
-
-   ```python
-   end_time = time.time()
-   print(f"Inference time: {end_time - start_time:.2f} seconds")
-   ```
-
-Now you're ready to enhance the quality of your images by removing noise with MMagic's DeNoise model! 📷✨
+You will get an enhanced quality of your image by removing noise with MMagic's SwinIR DeNoise model! 📷✨
 
 Make sure to provide the correct paths for your input and output images to enjoy beautifully denoised results. 🧼🌈
