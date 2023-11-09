@@ -16,7 +16,7 @@ start_time = time.time()
 # Create the MMagicInferencer
 editor = MMagicInferencer('esrgan', model_config=config, model_ckpt=checkpoint)
 
-# Perform image super resolution and save the output image
+# Remove noise from the image and save the output image
 output = editor.infer(img=input_img_path, result_out_dir=output_img_path)
 
 # Stop the timer and print the inference time
